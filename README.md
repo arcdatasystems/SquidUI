@@ -19,6 +19,7 @@ Squid Proxy Manager is a web-based management interface for Squid proxy servers.
 
 ### Technology Stack
 
+-   **OS**: Debian 11
 -   **Frontend**: HTML5, TailwindCSS, Vanilla JavaScript
 -   **Backend**: Python 3 with Flask framework
 -   **Web Server**: Nginx (reverse proxy)
