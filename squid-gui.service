@@ -1,0 +1,14 @@
+[Unit]
+Description=Squid GUI Backend
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/squid-gui
+Environment="PATH=/opt/squid-gui/venv/bin"
+ExecStart=/opt/squid-gui/venv/bin/python /opt/squid-gui/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
