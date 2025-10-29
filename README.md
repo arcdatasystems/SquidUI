@@ -14,7 +14,8 @@ Squid Proxy Manager is a web-based management interface for Squid proxy servers.
 
 ----------
 
-## Architecture
+<details>
+  <summary><h2> Architecture</h2></summary>
 
 ### Technology Stack
 
@@ -49,10 +50,11 @@ Squid Proxy Manager is a web-based management interface for Squid proxy servers.
                             │ /var/log/squid/      │
                             └──────────────────────┘
 ```
-
 ----------
+</details>
 
-## Installation & Setup
+<details>
+  <summary><h2>Installation & Setup</h2></summary>
 
 ### Prerequisites
 
@@ -232,8 +234,10 @@ The application manages these Squid configuration directives:
 -   `maximum_object_size` - Maximum cached object size
 
 ----------
+</details>
 
-## API Reference
+<details>
+  <summary><h2>API Reference</h2></summary>
 
 ### Base URL
 
@@ -409,3 +413,74 @@ GET /api/stats
   "activeConnections": "23"
 }
 ```
+</details>
+
+----------
+
+## Known Limitations
+
+1.  **ACL Management**: Not yet implemented - requires manual editing of `squid.conf`
+2.  **SSL Bump**: Interface provides toggles but requires manual certificate setup
+3.  **Authentication**: Enable checkbox doesn't configure actual auth - manual setup required
+4.  **Statistics**: Currently returns placeholder data - needs squidclient integration
+5.  **Log Parsing**: Simplified parsing - may not match actual Squid log format
+6.  **Multi-User**: No built-in user management or role-based access control
+7.  **Validation**: Limited input validation on configuration values
+
+----------
+
+## Roadmap / Future Enhancements
+
+-   Full ACL management interface
+-   Real-time statistics from squidclient
+-   Proper Squid log parsing
+-   Configuration validation before saving
+-   Backup/restore functionality
+-   Multi-user support with authentication
+-   SSL certificate generation wizard
+-   Bandwidth monitoring graphs
+-   Cache performance analytics
+-   Email alerts for issues
+-   Configuration templates
+-   Dark mode theme
+
+----------
+
+## Support & Resources
+
+### Official Squid Documentation
+
+-   Squid Website: [http://www.squid-cache.org/](http://www.squid-cache.org/)
+-   Squid Configuration: [http://www.squid-cache.org/Doc/config/](http://www.squid-cache.org/Doc/config/)
+
+### Application Files
+
+-   Backend: `/opt/squid-gui/app.py`
+-   Frontend: `/var/www/squid-gui/index.html`
+-   Nginx Config: `/etc/nginx/sites-available/squid-gui`
+-   Service File: `/etc/systemd/system/squid-gui.service`
+
+### Logs Locations
+
+-   Backend Logs: `journalctl -u squid-gui`
+-   Nginx Logs: `/var/log/nginx/access.log`, `/var/log/nginx/error.log`
+-   Squid Logs: `/var/log/squid/access.log`, `/var/log/squid/cache.log`
+
+----------
+
+## License
+
+This application is provided as-is for managing Squid proxy servers. Ensure compliance with your organization's policies when deploying.
+
+----------
+
+## Changelog
+
+### Version 1.0 (Current)
+
+-   Initial release
+-   Basic configuration management
+-   Service control (reload/restart)
+-   Log viewing
+-   Status monitoring
+-   Advanced settings UI (SSL Bump, Auth)
